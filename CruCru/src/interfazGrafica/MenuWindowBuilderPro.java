@@ -100,9 +100,8 @@ public class MenuWindowBuilderPro extends JFrame {
 		frmMenu.getContentPane().add(rigidArea_Este, BorderLayout.EAST);
 		btnVistaAbiertos.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				
-				EntradasAbiertasWindowBuilderPro abiertas = new EntradasAbiertasWindowBuilderPro();
-				abiertas.mostrarVentana();
+				DirectorBuilderEntradas entradasAbiertas = new DirectorBuilderEntradas(new EntradasAbiertasWindowBuilderPro());
+				entradasAbiertas.ConstruirVistaEntrada();
 			
 			};
 		});

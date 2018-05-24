@@ -1,8 +1,8 @@
-package interfazGrafica;
+package conexiones;
 
 import java.util.ArrayList;
 
-final class IteradorVistas implements IIteradorVistas {
+final public class IteradorVistas implements IIteradorVistas {
 
 	private ArrayList<Object[][]> vistas;
 	private int posicionActual;

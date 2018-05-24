@@ -1,6 +1,6 @@
-package interfazGrafica;
+package conexiones;
 
-interface IIteradorVistas {
+public interface IIteradorVistas {
 	void primero();
 	Object [][] Actual();
 	Object [][] Siguiente();

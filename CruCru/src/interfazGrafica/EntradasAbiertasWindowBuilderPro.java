@@ -20,6 +20,7 @@ import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
@@ -27,16 +28,47 @@ import javax.swing.JTable;
 import java.awt.Button;
 import java.awt.CardLayout;
 import java.awt.GridLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Iterator;
 
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.ListSelectionModel;
 
-public class EntradasAbiertasWindowBuilderPro extends BuilderEntradas {
+import conexiones.SingletonConexion;
 
+final class EntradasAbiertasWindowBuilderPro extends BuilderEntradas {
 	
 	
+	public void entradasTabla(){
+    	try{
+    		Connection con = null;
+    		con = SingletonConexion.getInstance();
+    		PreparedStatement ps;
+    		ResultSet res;
+    		ps = con.prepareStatement("SELECT * FROM persona");
+    		res = ps.executeQuery();
+    		
+    		if(res.next()){
+    			System.out.println(res.getString("nombre"));
+    			System.out.println(res.getString("domicilio"));
+    		}else{
+    			JOptionPane.showMessageDialog(null, "No Existen Datos");
+    		}
+    		
+    		con.close();
+    			
+    	} catch(Exception e){
+    		System.out.println(e);
+    	}
+	}
+
+    
+    
+    
 	//Estos son los metodos que adquiere del builder
 	void crearTabla() {
 		//tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -68,6 +100,7 @@ public class EntradasAbiertasWindowBuilderPro extends BuilderEntradas {
 		Object [] nuevaFila = new Object[4];
 		modelo.addRow(nuevaFila);
 		modelo.addRow(nuevaFila);
+		entradasTabla();
 	}
 
 }

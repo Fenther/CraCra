@@ -1,4 +1,4 @@
-package conexiones;
+package modelo;
 
 public interface IIteradorVistas {
 	void primero();

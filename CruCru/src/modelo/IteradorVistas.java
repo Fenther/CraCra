@@ -1,4 +1,4 @@
-package conexiones;
+package modelo;
 
 import java.util.ArrayList;
 

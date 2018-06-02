@@ -1,4 +1,4 @@
-package interfazGrafica;
+package vista;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -38,7 +38,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.ListSelectionModel;
 
-import conexiones.SingletonConexion;
+import modelo.SingletonConexion;
 
 final class EntradasAbiertasWindowBuilderPro extends BuilderEntradas {
 	
@@ -49,12 +49,13 @@ final class EntradasAbiertasWindowBuilderPro extends BuilderEntradas {
     		con = SingletonConexion.getInstance();
     		PreparedStatement ps;
     		ResultSet res;
-    		ps = con.prepareStatement("SELECT * FROM persona");
+    		ps = con.prepareStatement("SELECT * FROM agente");
     		res = ps.executeQuery();
     		
     		if(res.next()){
-    			System.out.println(res.getString("nombre"));
-    			System.out.println(res.getString("domicilio"));
+    			System.out.println(res.getString("Nombre"));
+    			System.out.println(res.getString("Apellidos"));
+    			System.out.println(res.getInt("Num_Placa"));
     		}else{
     			JOptionPane.showMessageDialog(null, "No Existen Datos");
     		}

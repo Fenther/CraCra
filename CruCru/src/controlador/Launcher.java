@@ -1,8 +1,8 @@
-package launcher;
-
-import interfazGrafica.LoginWindowBuilderPro;
+package controlador;
 
 import java.awt.EventQueue;
+
+import vista.LoginWindowBuilderPro;
 
 public class Launcher {
 	public static void main(final String[] args){

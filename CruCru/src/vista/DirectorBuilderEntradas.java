@@ -1,4 +1,4 @@
-package interfazGrafica;
+package vista;
 
 public class DirectorBuilderEntradas {
 	private BuilderEntradas builder;

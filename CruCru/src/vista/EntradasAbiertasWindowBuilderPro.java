@@ -38,7 +38,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.ListSelectionModel;
 
-import modelo.SingletonConexion;
+import modelo.SingletonConexionMYSQL;
 
 final class EntradasAbiertasWindowBuilderPro extends BuilderEntradas {
 	
@@ -46,7 +46,7 @@ final class EntradasAbiertasWindowBuilderPro extends BuilderEntradas {
 	public void entradasTabla(){
     	try{
     		Connection con = null;
-    		con = SingletonConexion.getInstance();
+    		con = SingletonConexionMYSQL.getInstance();
     		PreparedStatement ps;
     		ResultSet res;
     		ps = con.prepareStatement("SELECT * FROM agente");

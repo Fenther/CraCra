@@ -1,8 +1,11 @@
 package modelo;
 
-public interface IIteradorVistas {
+import java.util.List;
+
+public interface IIteradorVistas<T> {
 	void primero();
-	Object [][] Actual();
-	Object [][] Siguiente();
+	List<T> Actual();
+	List<T> Anterior();
+	List<T> Siguiente();
 	boolean quedanElementos();
 }

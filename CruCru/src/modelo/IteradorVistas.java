@@ -1,13 +1,15 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
-final public class IteradorVistas implements IIteradorVistas {
+final public class IteradorVistas<T> implements IIteradorVistas<T> {
 
-	private ArrayList<Object[][]> vistas;
+	private List<T> vistas;
 	private int posicionActual;
+	public static final int TAMAÑOVISTAS = 10;
 	
-	public IteradorVistas(ArrayList<Object[][]> listado){
+	public IteradorVistas(List<T> listado){
 		this.vistas = listado;
 	}
 	
@@ -17,26 +19,58 @@ final public class IteradorVistas implements IIteradorVistas {
 	}
 
 	@Override
-	public Object[][] Actual() {
+	public List<T> Actual() {
 		if ((this.vistas == null) ||
 				(this.vistas.size() == 0) || 
 				(posicionActual > this.vistas.size() -1) ||
 				(this.posicionActual < 0)){
 			return null;
 		} else {
-			
-			return this.vistas.get(posicionActual);
+			List<T> actual = new ArrayList<T>(TAMAÑOVISTAS);
+			int marcador = this.posicionActual;
+			for(int i = 0; (i<TAMAÑOVISTAS)||(this.vistas.size()>marcador) ; i++)
+			{
+				actual.add(i, this.vistas.get(marcador));
+				marcador++;
+			}
+			return actual;
 		}
 	}
 
 	@Override
-	public Object[][] Siguiente() {
+	public List<T> Siguiente() {
 		if ((this.vistas == null) ||
 				(this.vistas.size() == 0) ||
-				(posicionActual + 1 > this.vistas.size() - 1 )){
+				(posicionActual + TAMAÑOVISTAS > this.vistas.size() - 1 )){
 			return null;
 		} else {
-			return this.vistas.get(++posicionActual);
+			this.posicionActual += TAMAÑOVISTAS;
+			List<T> siguiente = new ArrayList<T>(TAMAÑOVISTAS);
+			int marcador = this.posicionActual;
+			for(int i = 0; (i<10)||(this.vistas.size()>marcador) ; i++)
+			{
+				siguiente.add(i, this.vistas.get(marcador));
+				marcador++;
+			}
+			return siguiente;
+		}
+	}
+	
+	public List<T> Anterior(){
+		if ((this.vistas == null) ||
+				(this.vistas.size() == 0) ||
+				(posicionActual - TAMAÑOVISTAS < 0)){
+			return null;
+		} else {
+			this.posicionActual -= TAMAÑOVISTAS;
+			List<T> anterior = new ArrayList<T>(TAMAÑOVISTAS);
+			int marcador = this.posicionActual;
+			for(int i = 0; (i<10)||(this.vistas.size()>marcador) ; i++)
+			{
+				anterior.add(i, this.vistas.get(marcador));
+				marcador++;
+			}
+			return anterior;
 		}
 	}
 

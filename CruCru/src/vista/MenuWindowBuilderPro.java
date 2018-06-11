@@ -17,6 +17,8 @@ import java.awt.Component;
 
 import javax.swing.Box;
 
+import controlador.FlagsUsuario;
+
 public class MenuWindowBuilderPro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -26,6 +28,9 @@ public class MenuWindowBuilderPro extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuWindowBuilderPro() {
+		inicializar();
+	}
+	public MenuWindowBuilderPro(FlagsUsuario u) {
 		inicializar();
 	}
 	

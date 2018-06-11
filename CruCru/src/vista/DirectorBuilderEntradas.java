@@ -13,7 +13,6 @@ public class DirectorBuilderEntradas {
 		builder.crearBotonesIterador();
 		builder.crearMarcoTabla();
 		builder.crearTabla();
-		builder.crearEntradasTabla();
 		builder.mostrarVentana();
 	}
 }

@@ -12,7 +12,6 @@ import vista.MenuWindowBuilderProArresto;
 import vista.MenuWindowBuilderProInforme;
 import vista.MenuWindowBuilderProPrueba;
 import vista.MenuWindowBuilderProSospechoso;
-import vista.EntradasAbiertasWindowBuilderPro;
 
 public class ControladorM {
 

@@ -38,7 +38,10 @@ public class DAOagenteMYSQL implements DAOagenteInterface {
 								+ agente.getNum_placa() + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido insertar el agente "
+							+ agente.getNum_placa() + ".");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -65,7 +68,10 @@ public class DAOagenteMYSQL implements DAOagenteInterface {
 								+ num_placa + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido eliminar el agente "
+							+ num_placa + ".");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -94,7 +100,10 @@ public class DAOagenteMYSQL implements DAOagenteInterface {
 								+ agente.getNum_placa() + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido actualizar el agente "
+							+ agente.getNum_placa() + ".");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -114,7 +123,9 @@ public class DAOagenteMYSQL implements DAOagenteInterface {
 						res.getString("Nombre"), res.getString("Apellidos"));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar el agente.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return agente;

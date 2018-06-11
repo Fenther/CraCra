@@ -33,52 +33,8 @@ public abstract class BuilderEntradas extends JFrame{
 		frmAbiertas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frmAbiertas.getContentPane().setLayout(new BorderLayout(0, 0));
 	}
-	void crearPanelBuscar(){
-		JPanel panel_Norte = new JPanel();
-		panel_Norte.setLayout(new FlowLayout(FlowLayout.LEFT,10,1));
-		panel_Norte.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.GRAY), "Parámetros de búsqueda"));
-		frmAbiertas.getContentPane().add(panel_Norte, BorderLayout.NORTH);
-		
-		Component rigidArea = Box.createRigidArea(new Dimension(20, 20));
-		panel_Norte.add(rigidArea);
-		
-		JLabel lblCampo1 = new JLabel("Campo1");
-		panel_Norte.add(lblCampo1);
-		
-		txtCampo1 = new JTextField();
-		txtCampo1.setText("campo1");
-		panel_Norte.add(txtCampo1);
-		txtCampo1.setColumns(10);
-		
-		
-		Component rigidArea_1 = Box.createRigidArea(new Dimension(20, 20));
-		panel_Norte.add(rigidArea_1);
-		
-		JLabel lblCampo2 = new JLabel("Campo2");
-		panel_Norte.add(lblCampo2);
-		
-		txtCampo2 = new JTextField();
-		txtCampo2.setText("campo2");
-		panel_Norte.add(txtCampo2);
-		txtCampo2.setColumns(10);
-		
-		Component rigidArea_2 = Box.createRigidArea(new Dimension(20, 20));
-		panel_Norte.add(rigidArea_2);
-		
-		JButton btnBuscar = new JButton("Buscar");
-		panel_Norte.add(btnBuscar);
-	}
-	void crearBotonesIterador(){
-		JPanel panel_Este = new JPanel();
-		frmAbiertas.getContentPane().add(panel_Este, BorderLayout.EAST);
-		panel_Este.setLayout(new GridLayout(2, 1, 0, 0));
-		
-		JButton btnUpTable = new JButton("Arriba");
-		panel_Este.add(btnUpTable);
-		
-		JButton btnDownTable = new JButton("Abajo");
-		panel_Este.add(btnDownTable);
-	}
+	abstract void crearPanelBuscar();
+	abstract void  crearBotonesIterador();
 	void crearMarcoTabla(){
 		JPanel panel_Centro = new JPanel();
 		frmAbiertas.getContentPane().add(panel_Centro, BorderLayout.CENTER);
@@ -100,32 +56,7 @@ public abstract class BuilderEntradas extends JFrame{
 		tblEntradas = new JTable();
 		panel_Centro2.add(tblEntradas, BorderLayout.CENTER);
 	}
-	void crearTabla() {
-		tblEntradas.setCellSelectionEnabled(true);
-		tblEntradas.setShowGrid(true);
-		tblEntradas.setShowVerticalLines(true);
-		tblEntradas.setGridColor(Color.BLACK);
-
-		modelo = new DefaultTableModel() {
-			private String[] columnNames = {"Unidades","Producto","Precio unidad","Subtotal"};
-			public String getColumnName(int column) {
-			    return columnNames[column];
-			}
-		    public int getColumnCount() {return 4;}
-		    public boolean isCellEditable(int row, int col){ return false;}
-		};
-		tblEntradas.setModel(modelo);
-		TableColumn columna = tblEntradas.getColumn("Unidades"); 
-		columna.setPreferredWidth(70);
-		columna.setMinWidth(70);
-		columna.setMaxWidth(70);
-		columna = tblEntradas.getColumn("Producto"); 
-		columna.setPreferredWidth(250);
-		columna.setMinWidth(250);
-		columna.setMaxWidth(250);
-
-	}
-	abstract void crearEntradasTabla();
+	abstract void crearTabla();
 	public void mostrarVentana(){
 		frmAbiertas.setVisible(true);
 	}

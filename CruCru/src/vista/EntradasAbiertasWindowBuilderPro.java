@@ -40,7 +40,7 @@ import javax.swing.ListSelectionModel;
 
 import modelo.SingletonConexionMYSQL;
 
-final class EntradasAbiertasWindowBuilderPro extends BuilderEntradas {
+public final class EntradasAbiertasWindowBuilderPro extends BuilderEntradas {
 	
 	
 	public void entradasTabla(){

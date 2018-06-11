@@ -5,11 +5,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import vista.DirectorBuilderEntradas;
+import vista.EntradasAgenteWindowBuilderPro;
 import vista.MenuWindowBuilderProAgente;
 import vista.MenuWindowBuilderProArresto;
 import vista.MenuWindowBuilderProInforme;
 import vista.MenuWindowBuilderProPrueba;
 import vista.MenuWindowBuilderProSospechoso;
+import vista.EntradasAbiertasWindowBuilderPro;
 
 public class ControladorM {
 
@@ -84,4 +87,14 @@ public class ControladorM {
 		};
 	}
 
+	public static ActionListener funcionalidadBotonEntradaAgente() {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (privilegio.getAdmin()) {
+					DirectorBuilderEntradas director = new DirectorBuilderEntradas(new EntradasAgenteWindowBuilderPro());
+					director.ConstruirVistaEntrada();
+				}
+			}
+		};
+	}
 }

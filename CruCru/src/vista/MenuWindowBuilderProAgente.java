@@ -47,6 +47,7 @@ public class MenuWindowBuilderProAgente extends JFrame {
 		frmMenu.setTitle("Insertar un agente");
 
 		JButton btnNewButton = new JButton("Vista Arrestos");
+		btnNewButton.addActionListener(ControladorM.funcionalidadBotonEntradaAgente());
 
 		JPanel panel_1 = new JPanel();
 		JButton btnNewButton_2 = new JButton("Atras");

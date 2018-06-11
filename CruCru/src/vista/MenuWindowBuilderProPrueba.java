@@ -7,18 +7,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
 
+
 import java.awt.Toolkit;
 
 
 
-import controlador.ControladorM;
 
+import controlador.ControladorM;
+import controlador.ControladorMPrueba;
 import modelo.DAOpruebaInterface;
 import modelo.DAOpruebaMYSQL;
 import modelo.DTOpruebaVO;
@@ -88,9 +91,7 @@ public class MenuWindowBuilderProPrueba extends JFrame {
 				int id = Integer.parseInt(textFieldId.getText().trim());
 				String descripcion = textFieldDescripcion.getText().trim();
 				String categoria = textFieldDescripcion.getText().trim();
-				DTOpruebaVO prueba = new DTOpruebaVO(id,descripcion,categoria);
-				DAOpruebaInterface DAOprueba = new DAOpruebaMYSQL();
-				DAOprueba.create(prueba);
+				ControladorMPrueba.funcionalidadBotonAñadir(id, descripcion, categoria);
 			}
 		});
 		

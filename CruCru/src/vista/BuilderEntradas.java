@@ -28,7 +28,7 @@ public abstract class BuilderEntradas extends JFrame{
 	
 	void crearFrame(){
 		frmAbiertas = new JFrame();
-		frmAbiertas.setTitle("Entradas Abiertas");
+		frmAbiertas.setTitle("Entradas");
 		frmAbiertas.setBounds(100, 100, 800, 600);
 		frmAbiertas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frmAbiertas.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -101,7 +101,6 @@ public abstract class BuilderEntradas extends JFrame{
 		panel_Centro2.add(tblEntradas, BorderLayout.CENTER);
 	}
 	void crearTabla() {
-		//tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tblEntradas.setCellSelectionEnabled(true);
 		tblEntradas.setShowGrid(true);
 		tblEntradas.setShowVerticalLines(true);

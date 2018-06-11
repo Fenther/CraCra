@@ -18,6 +18,7 @@ import java.awt.Toolkit;
 import javax.swing.text.NumberFormatter;
 
 import controlador.ControladorM;
+import controlador.ControladorMSospechoso;
 import modelo.DAOsospechosoInterface;
 import modelo.DAOsospechosoMYSQL;
 import modelo.DTOsospechosoVO;
@@ -120,9 +121,7 @@ public class MenuWindowBuilderProSospechoso extends JFrame {
 				String raza = textFieldRaza.getText().trim();
 				int edad = Integer.parseInt(formattedTextFieldEdad.getText().trim());
 				String dni =  textFieldDni.getText().trim();
-				DTOsospechosoVO sospechoso = new DTOsospechosoVO(id,nombre,apellido, sexo,raza, edad, dni);
-				DAOsospechosoInterface DAOsospechoso = new DAOsospechosoMYSQL();
-				DAOsospechoso.create(sospechoso);
+				ControladorMSospechoso.funcionalidadBotonAñadir(id, nombre, apellido, sexo, raza, edad, dni);
 			}
 		});
 		

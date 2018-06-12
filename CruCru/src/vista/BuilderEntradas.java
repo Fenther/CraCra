@@ -23,6 +23,7 @@ public abstract class BuilderEntradas extends JFrame{
 	JFrame frmAbiertas;
 	JTextField txtCampo1;
 	JTextField txtCampo2;
+	JTextField txtCampo3;
 	JTable tblEntradas;
 	DefaultTableModel modelo;
 	

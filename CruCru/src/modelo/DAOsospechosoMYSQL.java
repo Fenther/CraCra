@@ -40,7 +40,8 @@ public class DAOsospechosoMYSQL implements DAOsospechosoInterface {
 								+ sospechoso.getSospechoso_id() + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,
+					"No se han podido insertar el sospechosos.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -64,7 +65,8 @@ public class DAOsospechosoMYSQL implements DAOsospechosoInterface {
 						"No se han podido eliminar el sospechoso " + id + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,
+					"No se han podido eliminar el sospechoso.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -95,7 +97,8 @@ public class DAOsospechosoMYSQL implements DAOsospechosoInterface {
 								+ sospechoso.getSospechoso_id() + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,
+					"No se han podido actualizar el sospechoso.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -117,7 +120,9 @@ public class DAOsospechosoMYSQL implements DAOsospechosoInterface {
 						res.getInt("Edad"), res.getString("DNI"));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar el sospechoso.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return sospechoso;
@@ -139,7 +144,9 @@ public class DAOsospechosoMYSQL implements DAOsospechosoInterface {
 						res.getInt("Edad"), res.getString("DNI"));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar el sospechoso.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return sospechoso;
@@ -161,7 +168,9 @@ public class DAOsospechosoMYSQL implements DAOsospechosoInterface {
 				sospechosos.add(sospechoso);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar los sospechosos.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return sospechosos;

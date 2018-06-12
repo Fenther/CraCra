@@ -71,24 +71,30 @@ public class MenuWindowBuilderProSospechoso extends JFrame {
 		frmMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMenu.setTitle("Menu Principal");
 		
-		JButton btnNewButton = new JButton("Vista Arrestos");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		JButton btnNewButton = new JButton("Vista agentes");
+		btnNewButton.addActionListener(ControladorM.funcionalidadBotonEntradaAgente());
 		
 		
 		
 		JPanel panel_1 = new JPanel();
 		
 		JButton btnNewButton_2 = new JButton("Atras");
+		btnNewButton_2.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frmMenu.dispose();
+				InicioWindowBuilderPro frame = new InicioWindowBuilderPro();
+				frame.mostrarVentana();				
+			}
+			
+		});
 		
 		JLabel lblNewLabel = new JLabel("Nombre:");
 		
 		JLabel lblSexo = new JLabel("Sexo:");
 		
 		JLabel lblRaza = new JLabel("Raza:");
-		//textField_3.setVisible(false);
 		
 		textFieldDni = new JTextField();
 		textFieldDni.setColumns(10);
@@ -226,9 +232,6 @@ public class MenuWindowBuilderProSospechoso extends JFrame {
 		frmMenu.getContentPane().setLayout(new MigLayout("", "[1px][215px][761.00px,grow][][838px,grow,center]", "[33.00px][][23px][][6px][72.00px][510px,bottom]"));
 		frmMenu.getContentPane().add(btnNewButton, "cell 1 0,grow");
 		
-		JButton btnGeneradorInforme = new JButton("Vista Informes");
-		frmMenu.getContentPane().add(btnGeneradorInforme, "cell 1 1,grow");
-		
 		JButton btnAnyadirAgente = new JButton("A\u00F1adir Agente");
 		btnAnyadirAgente.addActionListener(ControladorM.funcionalidadBotonVistaAgente(frmMenu));
 		frmMenu.getContentPane().add(btnAnyadirAgente, "cell 2 1,alignx center");
@@ -241,9 +244,6 @@ public class MenuWindowBuilderProSospechoso extends JFrame {
 		});
 		frmMenu.getContentPane().add(btnAadirSospechoso, "cell 4 1");
 		
-		JButton btnGeneradorPruebas = new JButton("Vista Pruebas");
-		frmMenu.getContentPane().add(btnGeneradorPruebas, "cell 1 2,grow");
-		
 		JButton btnAadirPrueba = new JButton("A\u00F1adir Prueba");
 		btnAadirPrueba.addActionListener(ControladorM.funcionalidadBotonVistaPrueba(frmMenu));
 		frmMenu.getContentPane().add(btnAadirPrueba, "cell 2 2,alignx center");
@@ -252,17 +252,27 @@ public class MenuWindowBuilderProSospechoso extends JFrame {
 		btnCrearInforme.addActionListener(ControladorM.funcionalidadBotonVistaInforme(frmMenu));
 		frmMenu.getContentPane().add(btnCrearInforme, "cell 4 2,alignx center");
 		
-		JButton btnVistasSospechosos = new JButton("Vista Sospechosos");
-		frmMenu.getContentPane().add(btnVistasSospechosos, "cell 1 3");
-		
 		JButton btnAadirArresto = new JButton("A\u00F1adir Arresto");
 		btnAadirArresto.addActionListener(ControladorM.funcionalidadBotonVistaArresto(frmMenu));
 		frmMenu.getContentPane().add(btnAadirArresto, "cell 2 3,alignx center");
 		
-		JButton btnVistaAgentes = new JButton("Vista Agentes");
-		frmMenu.getContentPane().add(btnVistaAgentes, "cell 1 5,growx");
+		JButton btnVistaArrestos = new JButton("Vista Arrestos");
+		btnVistaArrestos.addActionListener(ControladorM.funcionalidadBotonEntradaArresto());
+		frmMenu.getContentPane().add(btnVistaArrestos, "cell 1 5,growx");
 		frmMenu.getContentPane().add(panel_1, "cell 0 6 5 1,alignx trailing,growy");
+		
+		JButton btnGeneradorPruebas = new JButton("Vista Pruebas");
+		btnGeneradorPruebas.addActionListener(ControladorM.funcionalidadBotonEntradaPrueba());
+		frmMenu.getContentPane().add(btnGeneradorPruebas, "cell 1 2,grow");
 
+		JButton btnGeneradorInforme = new JButton("Vista Informes");
+		btnGeneradorInforme.addActionListener(ControladorM.funcionalidadBotonEntradaInforme());
+		frmMenu.getContentPane().add(btnGeneradorInforme, "cell 1 1,grow");
+		
+		JButton btnVistasSospechosos = new JButton("Vista Sospechosos");
+		btnVistasSospechosos.addActionListener(ControladorM.funcionalidadBotonEntradaSospechoso());
+		frmMenu.getContentPane().add(btnVistasSospechosos, "cell 1 3");
+		
 	}
 	
 	public JComboBox crearComboBoxSexo() {

@@ -74,6 +74,8 @@ public class DTOsospechosoVO {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	
+	public String toString() {
+		return nombre + " " + apellido;
+	}
 	
 }

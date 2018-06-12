@@ -7,6 +7,10 @@ import javax.swing.JFrame;
 
 import vista.DirectorBuilderEntradas;
 import vista.EntradasAgenteWindowBuilderPro;
+import vista.EntradasArrestoWindowBuilderPro;
+import vista.EntradasInformeWindowBuilderPro;
+import vista.EntradasPruebaWindowBuilderPro;
+import vista.EntradasSospechosoWindowBuilderPro;
 import vista.MenuWindowBuilderProAgente;
 import vista.MenuWindowBuilderProArresto;
 import vista.MenuWindowBuilderProInforme;
@@ -91,6 +95,50 @@ public class ControladorM {
 			public void actionPerformed(ActionEvent e) {
 				if (privilegio.getAdmin()) {
 					DirectorBuilderEntradas director = new DirectorBuilderEntradas(new EntradasAgenteWindowBuilderPro());
+					director.ConstruirVistaEntrada();
+				}
+			}
+		};
+	}
+	
+	public static ActionListener funcionalidadBotonEntradaSospechoso(){
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (privilegio.getAdmin() || privilegio.getAgente()) {
+					DirectorBuilderEntradas director = new DirectorBuilderEntradas(new EntradasSospechosoWindowBuilderPro());
+					director.ConstruirVistaEntrada();
+				}
+			}
+		};
+	}
+
+	public static ActionListener funcionalidadBotonEntradaPrueba() {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (privilegio.getAdmin() || privilegio.getAgentePruebas()) {
+					DirectorBuilderEntradas director = new DirectorBuilderEntradas(new EntradasPruebaWindowBuilderPro());
+					director.ConstruirVistaEntrada();
+				}
+			}
+		};
+	}
+
+	public static ActionListener funcionalidadBotonEntradaArresto() {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (privilegio.getAdmin() || privilegio.getAgente()) {
+					DirectorBuilderEntradas director = new DirectorBuilderEntradas(new EntradasArrestoWindowBuilderPro());
+					director.ConstruirVistaEntrada();
+				}
+			}
+		};
+	}
+
+	public static ActionListener funcionalidadBotonEntradaInforme() {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (privilegio.getAdmin() || privilegio.getAgente()) {
+					DirectorBuilderEntradas director = new DirectorBuilderEntradas(new EntradasInformeWindowBuilderPro());
 					director.ConstruirVistaEntrada();
 				}
 			}

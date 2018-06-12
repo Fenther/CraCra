@@ -14,6 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -54,6 +55,11 @@ public class EntradasAgenteWindowBuilderPro extends BuilderEntradas {
 		modelo.addColumn("Num_placa");
 		modelo.addColumn("Nombre");
 		modelo.addColumn("Apellidos");
+		Object[] fila = new Object[NUMCOLUMNAS];
+		fila[0] = "Num_Placa";
+		fila[1] = "Nombre";
+		fila[2] = "Apellido";
+		modelo.addRow(fila);
 		crearEntradasTabla();
 		}
 	
@@ -149,7 +155,9 @@ public class EntradasAgenteWindowBuilderPro extends BuilderEntradas {
 								.parseInt(txtCampo1.getText()));
 						crearTabla();
 					}catch(Exception r){
-						
+						JOptionPane.showMessageDialog(
+								null,
+								"No se han podido encontrar el agente.");
 					}
 				}
 			});

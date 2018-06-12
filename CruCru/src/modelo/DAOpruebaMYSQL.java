@@ -38,7 +38,10 @@ public class DAOpruebaMYSQL implements DAOpruebaInterface {
 								+ prueba.getPrueba_id() + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido insertar la prueba "
+							+ prueba.getPrueba_id() + ".");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -54,18 +57,20 @@ public class DAOpruebaMYSQL implements DAOpruebaInterface {
 			if (ps.executeUpdate() > 0) {
 				JOptionPane.showMessageDialog(
 						null,
-						"Se ha eliminado correctamente el agente "
+						"Se ha eliminado correctamente la prueba "
 								+ prueba_id + ".");
 				SingletonConexionMYSQL.InstanceClose();
 				return true;
 			} else {
 				JOptionPane.showMessageDialog(
 						null,
-						"No se han podido eliminar el agente "
+						"No se han podido eliminar la prueba "
 								+ prueba_id + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido eliminar el agente.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -94,7 +99,9 @@ public class DAOpruebaMYSQL implements DAOpruebaInterface {
 								+ prueba.getPrueba_id() + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido actualizar la prueba.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -114,7 +121,9 @@ public class DAOpruebaMYSQL implements DAOpruebaInterface {
 						res.getString("Descripcion"), res.getString("Categoria"));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar la prueba.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return prueba;
@@ -134,7 +143,9 @@ public class DAOpruebaMYSQL implements DAOpruebaInterface {
 				pruebas.add(prueba);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar las pruebas.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return pruebas;

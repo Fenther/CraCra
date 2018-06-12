@@ -145,7 +145,9 @@ public class DAOagenteMYSQL implements DAOagenteInterface {
 				agentes.add(agente);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar los agentes.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return agentes;

@@ -35,12 +35,14 @@ public class DAOinformeMYSQL implements DAOinformeInterface {
 			} else {
 				JOptionPane.showMessageDialog(
 						null,
-						"No se han podido insertar el informe P:"
+						"No se ha podido insertar el informe P:"
 								+ informe.getPruebas() + " A:"
 								+ informe.getArresto() + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se ha podido insertar el informe.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -62,11 +64,13 @@ public class DAOinformeMYSQL implements DAOinformeInterface {
 				return true;
 			} else {
 				JOptionPane.showMessageDialog(null,
-						"No se han podido eliminar el infome P:" + id_prueba
+						"No se ha podido eliminar el infome P:" + id_prueba
 								+ " A:" + id_arresto + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se ha podido eliminar el informe.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -91,11 +95,13 @@ public class DAOinformeMYSQL implements DAOinformeInterface {
 			} else {
 				JOptionPane.showMessageDialog(
 						null,
-						"No se han podido actualizar el infome P:" + informe.getPruebas()
+						"No se ha podido actualizar el infome P:" + informe.getPruebas()
 								+ " A:" + informe.getArresto() + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se ha podido actualizar el informe.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -116,7 +122,9 @@ public class DAOinformeMYSQL implements DAOinformeInterface {
 						res.getInt("Arresto"), res.getDate("Fecha"));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se ha podido encontrar el informe.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return informe;
@@ -137,7 +145,9 @@ public class DAOinformeMYSQL implements DAOinformeInterface {
 				informes.add(informe);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar los informes.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return informes;
@@ -158,7 +168,9 @@ public class DAOinformeMYSQL implements DAOinformeInterface {
 				informes.add(informe);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar los informes.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return informes;
@@ -178,7 +190,9 @@ public class DAOinformeMYSQL implements DAOinformeInterface {
 				informes.add(informe);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar los informes.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return informes;

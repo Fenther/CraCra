@@ -35,4 +35,8 @@ public class DTOagenteVO {
 		this.apellidos = apellidos;
 	}
 	//Fin metodos get/set
+	
+	public String toString() {
+		return nombre+ " " + apellidos;
+	}
 }

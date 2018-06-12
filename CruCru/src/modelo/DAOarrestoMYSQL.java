@@ -40,7 +40,10 @@ public class DAOarrestoMYSQL implements DAOarrestoInterface {
 								+ arresto.getId() + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido insertar el arresto "
+							+ arresto.getId() + ".");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -63,7 +66,8 @@ public class DAOarrestoMYSQL implements DAOarrestoInterface {
 						"No se han podido eliminar el arresto " + id + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,
+					"No se han podido eliminar el arresto.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -94,7 +98,9 @@ public class DAOarrestoMYSQL implements DAOarrestoInterface {
 								+ arresto.getId() + ".");
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido actualizar el arresto.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return false;
@@ -115,7 +121,9 @@ public class DAOarrestoMYSQL implements DAOarrestoInterface {
 						res.getDate("FechaArresto"), res.getTime("HoraArresto"));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar el arresto.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return arresto;
@@ -138,7 +146,9 @@ public class DAOarrestoMYSQL implements DAOarrestoInterface {
 				arrestos.add(arresto);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar los arrestos.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return arrestos;
@@ -161,7 +171,9 @@ public class DAOarrestoMYSQL implements DAOarrestoInterface {
 				arrestos.add(arresto);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar los arrestos.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return arrestos;
@@ -183,7 +195,9 @@ public class DAOarrestoMYSQL implements DAOarrestoInterface {
 				arrestos.add(arresto);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(
+					null,
+					"No se han podido encontrar los arrestos.");
 		}
 		SingletonConexionMYSQL.InstanceClose();
 		return arrestos;

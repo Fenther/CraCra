@@ -35,5 +35,8 @@ public class DTOpruebaVO {
 		this.categoria = categoria;
 	}
 	
+	public String toString() {
+		return prueba_id+"";
+	}
 	
 }

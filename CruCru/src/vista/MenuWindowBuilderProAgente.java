@@ -46,11 +46,20 @@ public class MenuWindowBuilderProAgente extends JFrame {
 		frmMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMenu.setTitle("Insertar un agente");
 
-		JButton btnNewButton = new JButton("Vista Arrestos");
-		btnNewButton.addActionListener(ControladorM.funcionalidadBotonEntradaAgente());
-
+		
+		
 		JPanel panel_1 = new JPanel();
 		JButton btnNewButton_2 = new JButton("Atras");
+		btnNewButton_2.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frmMenu.dispose();
+				InicioWindowBuilderPro frame = new InicioWindowBuilderPro();
+				frame.mostrarVentana();				
+			}
+			
+		});
 		JLabel lblNombre = new JLabel("Nombre:");
 		JLabel lblNmeroDePlaca = new JLabel("N\u00FAmero de placa:");
 		JLabel lblApellidos = new JLabel("Apellidos:");
@@ -203,10 +212,10 @@ public class MenuWindowBuilderProAgente extends JFrame {
 				new MigLayout("",
 						"[1px][215px][761.00px,grow][][838px,grow,center]",
 						"[33.00px][][23px][][6px][72.00px][510px,bottom]"));
+		
+		JButton btnNewButton = new JButton("Vista agentes");
+		btnNewButton.addActionListener(ControladorM.funcionalidadBotonEntradaAgente());
 		frmMenu.getContentPane().add(btnNewButton, "cell 1 0,grow");
-
-		JButton btnGeneradorInforme = new JButton("Vista Informes");
-		frmMenu.getContentPane().add(btnGeneradorInforme, "cell 1 1,grow");
 
 		JButton btnAnyadirAgente = new JButton("A\u00F1adir Agente");
 
@@ -218,9 +227,6 @@ public class MenuWindowBuilderProAgente extends JFrame {
 				.funcionalidadBotonVistaSospechoso(frmMenu));
 
 		frmMenu.getContentPane().add(btnAadirSospechoso, "cell 4 1");
-
-		JButton btnGeneradorPruebas = new JButton("Vista Pruebas");
-		frmMenu.getContentPane().add(btnGeneradorPruebas, "cell 1 2,grow");
 
 		JButton btnAadirPrueba = new JButton("A\u00F1adir Prueba");
 		btnAadirPrueba.addActionListener(ControladorM
@@ -234,15 +240,29 @@ public class MenuWindowBuilderProAgente extends JFrame {
 
 		frmMenu.getContentPane().add(btnCrearInforme, "cell 4 2,alignx center");
 
-		JButton btnVistasSospechosos = new JButton("Vista Sospechosos");
-		frmMenu.getContentPane().add(btnVistasSospechosos, "cell 1 3");
-
 		JButton btnAadirArresto = new JButton("A\u00F1adir Arresto");
 		btnAadirArresto.addActionListener(ControladorM
 				.funcionalidadBotonVistaArresto(frmMenu));
 		frmMenu.getContentPane().add(btnAadirArresto, "cell 2 3,alignx center");
 		frmMenu.getContentPane().add(panel_1,
 				"cell 1 6 4 1,alignx trailing,growy");
+		
+		JButton btnVistaArrestos = new JButton("Vista Arrestos");
+		btnVistaArrestos.addActionListener(ControladorM.funcionalidadBotonEntradaArresto());
+		frmMenu.getContentPane().add(btnVistaArrestos, "cell 1 4");
+		frmMenu.getContentPane().add(panel_1, "cell 1 10 4 1,alignx trailing,growy");
+		
+		JButton btnGeneradorPruebas = new JButton("Vista Pruebas");
+		btnGeneradorPruebas.addActionListener(ControladorM.funcionalidadBotonEntradaPrueba());
+		frmMenu.getContentPane().add(btnGeneradorPruebas, "cell 1 2,grow");
+		
+		JButton btnGeneradorInforme = new JButton("Vista Informes");
+		btnGeneradorInforme.addActionListener(ControladorM.funcionalidadBotonEntradaInforme());
+		frmMenu.getContentPane().add(btnGeneradorInforme, "cell 1 1,grow");
+		
+		JButton btnVistasSospechosos = new JButton("Vista Sospechosos");
+		btnVistasSospechosos.addActionListener(ControladorM.funcionalidadBotonEntradaSospechoso());
+		frmMenu.getContentPane().add(btnVistasSospechosos, "cell 1 3");
 
 	}
 

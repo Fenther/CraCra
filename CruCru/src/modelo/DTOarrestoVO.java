@@ -59,6 +59,8 @@ public class DTOarrestoVO {
 		this.hora = hora;
 	}
 	
-	
+	public String toString() {
+		return id+"";
+	}
 	
 }

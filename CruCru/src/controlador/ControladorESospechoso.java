@@ -7,7 +7,6 @@ import java.util.List;
 
 import modelo.DAOsospechosoInterface;
 import modelo.DAOsospechosoMYSQL;
-import modelo.DTOagenteVO;
 import modelo.DTOsospechosoVO;
 import modelo.IIteradorVistas;
 import modelo.IteradorVistas;

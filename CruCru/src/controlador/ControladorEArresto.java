@@ -5,7 +5,6 @@ import java.util.List;
 
 import modelo.DAOarrestoInterface;
 import modelo.DAOarrestoMYSQL;
-import modelo.DTOagenteVO;
 import modelo.DTOarrestoVO;
 import modelo.IIteradorVistas;
 import modelo.IteradorVistas;

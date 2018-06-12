@@ -40,8 +40,8 @@ public class MenuWindowBuilderProInforme extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JFrame frmMenu;
 	private JTextField textFieldFecha;
-	private JComboBox comboBoxArresto_1;
-	private JComboBox comboBoxPrueba_1;
+	private JComboBox<DTOarrestoVO> comboBoxArresto_1;
+	private JComboBox<DTOpruebaVO> comboBoxPrueba_1;
 
 	
 	/**
@@ -90,9 +90,9 @@ public class MenuWindowBuilderProInforme extends JFrame {
 		textFieldFecha = new JTextField();
 		textFieldFecha.setColumns(10);
 		
-		JComboBox comboBoxPrueba = crearComboBoxPrueba();
+		JComboBox<DTOpruebaVO> comboBoxPrueba = crearComboBoxPrueba();
 	
-		JComboBox comboBoxArresto = crearComboBoxArresto();
+		JComboBox<DTOarrestoVO> comboBoxArresto = crearComboBoxArresto();
 		
 		JButton buttonAnyadir = new JButton("A\u00F1adir");
 		buttonAnyadir.addActionListener(new ActionListener() {
@@ -203,8 +203,8 @@ public class MenuWindowBuilderProInforme extends JFrame {
 		
 	}
 	
-	private JComboBox crearComboBoxPrueba() {
-		comboBoxPrueba_1 = new JComboBox();
+	private JComboBox<DTOpruebaVO> crearComboBoxPrueba() {
+		comboBoxPrueba_1 = new JComboBox<DTOpruebaVO>();
 		DAOpruebaInterface DAOprueba = new DAOpruebaMYSQL();
 		Iterator<DTOpruebaVO> pruebasIt = DAOprueba.getAll().iterator();
 		while (pruebasIt.hasNext()) {
@@ -216,8 +216,8 @@ public class MenuWindowBuilderProInforme extends JFrame {
 		return comboBoxPrueba_1;
 	}
 	
-	private JComboBox crearComboBoxArresto() {
-		comboBoxArresto_1 = new JComboBox();
+	private JComboBox<DTOarrestoVO> crearComboBoxArresto() {
+		comboBoxArresto_1 = new JComboBox<DTOarrestoVO>();
 		DAOarrestoInterface DAOarresto = new DAOarrestoMYSQL();
 		Iterator<DTOarrestoVO> arrestoIt = DAOarresto.getAll().iterator();
 		

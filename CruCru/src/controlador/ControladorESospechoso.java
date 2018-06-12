@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 import modelo.DAOsospechosoInterface;
 import modelo.DAOsospechosoMYSQL;
-
+import modelo.DTOagenteVO;
 import modelo.DTOsospechosoVO;
 import modelo.IIteradorVistas;
 import modelo.IteradorVistas;
@@ -76,5 +77,8 @@ public class ControladorESospechoso {
 			return iterador.Siguiente();
 		}
 		return null;
+	}
+	public void actualizar(DTOsospechosoVO sospechoso){
+		DAO.update(sospechoso);
 	}
 }

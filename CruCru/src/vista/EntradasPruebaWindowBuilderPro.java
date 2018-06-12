@@ -24,6 +24,7 @@ import modelo.DTOpruebaVO;
 
 public class EntradasPruebaWindowBuilderPro extends BuilderEntradas {
 	
+	private static final long serialVersionUID = 1L;
 	private static final int NUMCOLUMNAS = 3;
 	private ControladorEPrueba controlador = new ControladorEPrueba(); 
 	private List<DTOpruebaVO> vista = controlador.getAll();;
@@ -68,7 +69,7 @@ public class EntradasPruebaWindowBuilderPro extends BuilderEntradas {
 		{
 			JPanel panel_Este = new JPanel();
 			frmAbiertas.getContentPane().add(panel_Este, BorderLayout.EAST);
-			panel_Este.setLayout(new GridLayout(5, 1, 0, 0));
+			panel_Este.setLayout(new GridLayout(6, 1, 0, 0));
 			
 			JButton btnInit = new JButton("Principio");
 			btnInit.addActionListener(new ActionListener(){
@@ -119,7 +120,19 @@ public class EntradasPruebaWindowBuilderPro extends BuilderEntradas {
 			});
 			panel_Este.add(btnDelete);
 			
-			
+			JButton btnUpload = new JButton("Guardar");
+			btnUpload.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(tblEntradas.getSelectedRow() > 0){
+					DTOpruebaVO prueba = new DTOpruebaVO(
+							Integer.parseInt(tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 0).toString()),
+							tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 1).toString().trim(),
+							tblEntradas	.getValueAt(tblEntradas.getSelectedRow(), 2).toString().trim());
+					controlador.actualizar(prueba);}
+				}
+			});
+			panel_Este.add(btnUpload);
 		}
 
 	@Override

@@ -44,9 +44,9 @@ public class MenuWindowBuilderProArresto extends JFrame {
 	private JFrame frmMenu;
 	private JTextField textFieldHora;
 	private JTextField textFieldFecha;
-	JComboBox comboBoxSospechosos;
-	private JComboBox res_1;
-	private JComboBox res;
+	JComboBox<?> comboBoxSospechosos;
+	private JComboBox<DTOsospechosoVO> res_1;
+	private JComboBox<DTOagenteVO> res;
 	private JTextField textFieldId;
 	
 	
@@ -96,10 +96,10 @@ public class MenuWindowBuilderProArresto extends JFrame {
 		
 		JLabel lblPlaceh_1 = new JLabel("Hora:");
 		
-		JComboBox comboBoxSospechosos = crearComboBoxSospechoso();
+		JComboBox<DTOsospechosoVO> comboBoxSospechosos = crearComboBoxSospechoso();
 		JLabel lblAgentes = new JLabel("Agente:");
 		
-		JComboBox comboBoxAgentes = crearComboBoxAgente();
+		JComboBox<DTOagenteVO> comboBoxAgentes = crearComboBoxAgente();
 		
 		JLabel lblFechaArresto = new JLabel("Fecha:");
 		
@@ -246,8 +246,8 @@ public class MenuWindowBuilderProArresto extends JFrame {
 		
 	}
 
-	private JComboBox crearComboBoxSospechoso() {
-		res_1 = new JComboBox();
+	private JComboBox<DTOsospechosoVO> crearComboBoxSospechoso() {
+		res_1 = new JComboBox<DTOsospechosoVO>();
 		DAOsospechosoInterface DAOsospechoso = new DAOsospechosoMYSQL();
 		Iterator<DTOsospechosoVO> sospechosoIt = DAOsospechoso.getAll().iterator();
 		while (sospechosoIt.hasNext()) {
@@ -258,9 +258,9 @@ public class MenuWindowBuilderProArresto extends JFrame {
 		return res_1;
 	}
 	
-	private JComboBox crearComboBoxAgente() {
+	private JComboBox<DTOagenteVO> crearComboBoxAgente() {
 		
-		res = new JComboBox();
+		res = new JComboBox<DTOagenteVO>();
 		DAOagenteInterface DAOagente = new DAOagenteMYSQL();
 		Iterator<DTOagenteVO> agenteIt = DAOagente.getAll().iterator();
 		while (agenteIt.hasNext()) {

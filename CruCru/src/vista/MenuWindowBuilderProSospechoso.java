@@ -1,12 +1,10 @@
 package vista;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
@@ -19,9 +17,6 @@ import javax.swing.text.NumberFormatter;
 
 import controlador.ControladorM;
 import controlador.ControladorMSospechoso;
-import modelo.DAOsospechosoInterface;
-import modelo.DAOsospechosoMYSQL;
-import modelo.DTOsospechosoVO;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -44,9 +39,8 @@ public class MenuWindowBuilderProSospechoso extends JFrame {
 	private JTextField textFieldApellidos;
 	private JTextField textFieldNombre;
 	private JTextField textFieldRaza;
-	private JFormattedTextField formattedTextFieldEdad;
-	private JComboBox comboBoxSexo;
-	private JComboBox res_1;
+	private JComboBox<String> comboBoxSexo;
+	private JComboBox<String> res_1;
 	private JFormattedTextField res;
 	private JTextField textFieldId;
 	
@@ -275,8 +269,8 @@ public class MenuWindowBuilderProSospechoso extends JFrame {
 		
 	}
 	
-	public JComboBox crearComboBoxSexo() {
-		res_1 = new JComboBox();
+	public JComboBox<String> crearComboBoxSexo() {
+		res_1 = new JComboBox<String>();
 		res_1.addItem("Masculino");
 		res_1.addItem("Femenino");
 		return res_1;

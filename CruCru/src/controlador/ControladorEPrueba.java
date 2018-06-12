@@ -5,6 +5,7 @@ import java.util.List;
 
 import modelo.DAOpruebaInterface;
 import modelo.DAOpruebaMYSQL;
+import modelo.DTOagenteVO;
 import modelo.DTOpruebaVO;
 import modelo.IIteradorVistas;
 import modelo.IteradorVistas;
@@ -65,5 +66,8 @@ public class ControladorEPrueba {
 			return iterador.Siguiente();
 		}
 		return null;
+	}
+	public void actualizar(DTOpruebaVO prueba){
+		DAO.update(prueba);
 	}
 }

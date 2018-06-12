@@ -19,13 +19,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import modelo.DTOagenteVO;
 import modelo.DTOsospechosoVO;
-import controlador.ControladorEAgente;
 import controlador.ControladorESospechoso;
 
 public class EntradasSospechosoWindowBuilderPro extends BuilderEntradas {
 	
+	private static final long serialVersionUID = 1L;
 	private static final int NUMCOLUMNAS = 7;
 	private ControladorESospechoso controlador = new ControladorESospechoso(); 
 	private List<DTOsospechosoVO> vista = controlador.getAll();;
@@ -81,7 +80,7 @@ public class EntradasSospechosoWindowBuilderPro extends BuilderEntradas {
 		{
 			JPanel panel_Este = new JPanel();
 			frmAbiertas.getContentPane().add(panel_Este, BorderLayout.EAST);
-			panel_Este.setLayout(new GridLayout(5, 1, 0, 0));
+			panel_Este.setLayout(new GridLayout(6, 1, 0, 0));
 			
 			JButton btnInit = new JButton("Principio");
 			btnInit.addActionListener(new ActionListener(){
@@ -132,7 +131,24 @@ public class EntradasSospechosoWindowBuilderPro extends BuilderEntradas {
 			});
 			panel_Este.add(btnDelete);
 			
-			
+			JButton btnUpload = new JButton("Guardar");
+			btnUpload.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(tblEntradas.getSelectedRow() > 0){
+					DTOsospechosoVO sospechoso = new DTOsospechosoVO(
+							Integer.parseInt(tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 0).toString()),
+							tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 1).toString().trim(),
+							tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 2).toString().trim(),
+							tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 4).toString().trim(),
+							tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 5).toString().trim(),
+							Integer.parseInt(tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 3).toString()),
+							tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 6).toString().trim()
+							);
+					controlador.actualizar(sospechoso);}
+				}
+			});
+			panel_Este.add(btnUpload);
 		}
 
 	@Override

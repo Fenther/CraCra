@@ -5,6 +5,7 @@ import java.util.List;
 
 import modelo.DAOarrestoInterface;
 import modelo.DAOarrestoMYSQL;
+import modelo.DTOagenteVO;
 import modelo.DTOarrestoVO;
 import modelo.IIteradorVistas;
 import modelo.IteradorVistas;
@@ -81,6 +82,9 @@ public class ControladorEArresto {
 			return iterador.Siguiente();
 		}
 		return null;
+	}
+	public void actualizar(DTOarrestoVO arresto){
+		DAO.update(arresto);
 	}
 }
 

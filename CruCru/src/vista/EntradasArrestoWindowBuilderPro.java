@@ -8,6 +8,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -19,11 +21,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+
 import modelo.DTOarrestoVO;
 import controlador.ControladorEArresto;
 
 public class EntradasArrestoWindowBuilderPro extends BuilderEntradas{
 	
+	private static final long serialVersionUID = 1L;
 	private static final int NUMCOLUMNAS = 5;
 	private ControladorEArresto controlador = new ControladorEArresto(); 
 	private List<DTOarrestoVO> vista = controlador.getAll();;
@@ -72,7 +76,7 @@ public class EntradasArrestoWindowBuilderPro extends BuilderEntradas{
 		{
 			JPanel panel_Este = new JPanel();
 			frmAbiertas.getContentPane().add(panel_Este, BorderLayout.EAST);
-			panel_Este.setLayout(new GridLayout(5, 1, 0, 0));
+			panel_Este.setLayout(new GridLayout(6, 1, 0, 0));
 			
 			JButton btnInit = new JButton("Principio");
 			btnInit.addActionListener(new ActionListener(){
@@ -123,7 +127,22 @@ public class EntradasArrestoWindowBuilderPro extends BuilderEntradas{
 			});
 			panel_Este.add(btnDelete);
 			
-			
+			JButton btnUpload = new JButton("Guardar");
+			btnUpload.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(tblEntradas.getSelectedRow() > 0){
+					DTOarrestoVO arresto = new DTOarrestoVO(
+							Integer.parseInt(tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 0).toString()),
+							Integer.parseInt(tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 1).toString()),
+							Integer.parseInt(tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 2).toString()),
+							Date.valueOf(tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 3).toString()),
+							Time.valueOf(tblEntradas.getValueAt(tblEntradas.getSelectedRow(), 4).toString())
+							);
+					controlador.actualizar(arresto);}
+				}
+			});
+			panel_Este.add(btnUpload);
 		}
 
 	@Override
@@ -232,6 +251,7 @@ public class EntradasArrestoWindowBuilderPro extends BuilderEntradas{
 				}
 			});
 			panel_Norte.add(btnBuscarAgente);
+			
 			
 			
 		}

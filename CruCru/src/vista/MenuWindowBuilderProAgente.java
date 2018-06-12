@@ -8,7 +8,6 @@ import java.awt.Color;
 
 import controlador.ControladorM;
 import controlador.ControladorMAgente;
-import controlador.FlagsUsuario;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

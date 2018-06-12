@@ -5,6 +5,7 @@ import java.util.List;
 
 import modelo.DAOinformeInterface;
 import modelo.DAOinformeMYSQL;
+import modelo.DTOagenteVO;
 import modelo.DTOinformeVO;
 import modelo.IIteradorVistas;
 import modelo.IteradorVistas;
@@ -83,5 +84,8 @@ public class ControladorEInforme {
 			return iterador.Siguiente();
 		}
 		return null;
+	}
+	public void actualizar(DTOinformeVO informe){
+		DAO.update(informe);
 	}
 }

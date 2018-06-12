@@ -37,7 +37,7 @@ public class ControladorInicio {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventana.dispose();
-				ControladorM.setPrivilegio(new FlagsUsuario(false, true, false));
+				ControladorM.setPrivilegio(new FlagsUsuario(false, false, true));
 				MenuWindowBuilderProPrueba window = new MenuWindowBuilderProPrueba();
 				window.mostrarVentana();
 			}

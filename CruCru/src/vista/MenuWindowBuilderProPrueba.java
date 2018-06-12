@@ -25,9 +25,6 @@ import java.awt.Toolkit;
 
 import controlador.ControladorM;
 import controlador.ControladorMPrueba;
-import modelo.DAOpruebaInterface;
-import modelo.DAOpruebaMYSQL;
-import modelo.DTOpruebaVO;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;

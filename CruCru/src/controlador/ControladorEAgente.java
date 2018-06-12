@@ -66,4 +66,8 @@ public class ControladorEAgente {
 		}
 		return null;
 	}
+	
+	public void actualizar(DTOagenteVO agente){
+		DAO.update(agente);
+	}
 }
